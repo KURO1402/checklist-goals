@@ -52,29 +52,6 @@ Este enfoque permite:
 
 ---
 
-# 🌐 Despliegue
-
-El proyecto está diseñado para poder desplegarse completamente en servicios gratuitos.
-
-Posibles plataformas de despliegue:
-
-Frontend
-
-* Vercel
-* Netlify
-
-Backend
-
-* Render
-* Railway
-
-Base de datos
-
-* Neon
-* Supabase
-
----
-
 # 📚 Objetivo del Proyecto
 
 Este proyecto fue desarrollado con fines de aprendizaje para:
