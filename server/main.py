@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from src.database import engine, Base
 from src.controllers import user_controller # Importamos el router
 
-app = FastAPI(title="Mi API con Postgres")
+app = FastAPI(title="Lista de objetivos")
 
 Base.metadata.create_all(bind=engine)
 

@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #22c55e;
+  
+  /* Un blanco con un ligero matiz verde esmeralda (98% de luminosidad) */
+  --color-background: #f7fcf9; 
+  
+  /* Un tono un poco más oscuro para que las tarjetas resalten sobre el fondo */
+  --color-surface: #effaf3; 
+  
+  --color-tertiary: #064e3b;
+  --color-border: #e2ece6; /* Borde con tinte verde para armonizar */
+  --color-muted: #4b6354;
+}
