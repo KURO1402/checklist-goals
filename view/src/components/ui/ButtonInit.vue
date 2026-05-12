@@ -3,12 +3,14 @@ import { MoveRight } from 'lucide-vue-next';
 </script>
 
 <template>
+  <a href="/login">
   <button class="aimhigh-button group">
     <span class="relative z-10 flex items-center gap-2">
       Entrar
       <MoveRight :size="18" />
     </span>
   </button>
+  </a>
 </template>
 
 <style scoped>
@@ -18,11 +20,12 @@ import { MoveRight } from 'lucide-vue-next';
   align-items: center;
   position: relative;
   /* Tamaño ajustado para el header */
-  padding: 0.5rem 1.5rem; 
+  padding: 0.5rem 1.5rem;
   border: var(--color-primary) solid 0.15em;
   border-radius: 0.4em;
   color: var(--color-primary);
-  font-size: 1rem; /* Tamaño base para el header */
+  font-size: 1rem;
+  /* Tamaño base para el header */
   font-weight: 700;
   cursor: pointer;
   overflow: hidden;
@@ -35,21 +38,21 @@ import { MoveRight } from 'lucide-vue-next';
 }
 
 .aimhigh-button:hover {
-  color: var(--color-background); 
+  color: var(--color-background);
 }
 
 .aimhigh-button:active {
   border-color: var(--color-tertiary);
 }
 
-.aimhigh-button::after, 
+.aimhigh-button::after,
 .aimhigh-button::before {
   content: "";
   position: absolute;
-  width: 120%; 
+  width: 120%;
   aspect-ratio: 1;
   background: var(--color-primary);
-  opacity: 0; 
+  opacity: 0;
   border-radius: 50%;
   transition: transform 500ms, opacity 300ms;
   z-index: 0;

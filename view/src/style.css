@@ -1,15 +1,29 @@
+@import '@fontsource/plus-jakarta-sans';
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
-  --color-primary: #22c55e;
-  
-  /* Un blanco con un ligero matiz verde esmeralda (98% de luminosidad) */
-  --color-background: #f7fcf9; 
-  
-  /* Un tono un poco más oscuro para que las tarjetas resalten sobre el fondo */
-  --color-surface: #effaf3; 
-  
-  --color-tertiary: #064e3b;
-  --color-border: #e2ece6; /* Borde con tinte verde para armonizar */
-  --color-muted: #4b6354;
+   --font-sans: "Plus Jakarta Sans", sans-serif;
+  --color-primary:    #22c55e;
+  --color-background: #f7fcf9;
+  --color-surface:    #ffffff;
+  --color-surface-2:  #effaf3;
+  --color-text:       #0f2d1a;
+  --color-text-muted: #112E1C;
+  --color-bg-muted: #D9F1E3;
+  --color-bg-card: #FFFFFF;
+  --color-border:     #e2ece6;
+}
+
+.dark {
+  --color-primary:    #22c55e;
+  --color-background: #0f1a14;
+  --color-surface:    #152019;
+  --color-surface-2:  #1c2e22;
+  --color-text:       #e8f5ed;
+  --color-text-muted: #D9F1E3;
+  --color-bg-muted: #112E1C;
+  --color-bg-card: #152019;
+  --color-border:     rgba(163, 230, 184, 0.12);
 }

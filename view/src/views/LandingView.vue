@@ -1,4 +1,10 @@
-<script setup></script>
+<script setup>
+   import HeroSection from '../sections/HeroSection.vue';
+   import HowItWorksSection from '../sections/HowItWorksSection.vue';
+   import WhyItWorksSection from '../sections/WhyItWorksSection.vue'
+</script>
 <template>
-    <h1 class="bg-bg">Landig page</h1>
+    <HeroSection /> 
+    <HowItWorksSection />
+    <WhyItWorksSection />
 </template>

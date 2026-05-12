@@ -14,9 +14,9 @@ const currentYear = new Date().getFullYear()
           <div class="w-[18px] h-[18px] bg-primary rounded-[4px] flex items-center justify-center">
             <div class="w-[6px] h-[6px] rounded-full bg-background"></div>
           </div>
-          <span class="text-[14px] font-bold text-tertiary">AimHigh</span>
+          <span class="text-[14px] text-text font-bold text-tertiary">AimHigh</span>
         </a>
-        <p class="text-xs text-muted">Seguimiento de objetivos diarios</p>
+        <p class="text-xs text-text text-muted">Seguimiento de objetivos diarios</p>
       </div>
 
       <!-- GitHub + copyright -->
@@ -26,10 +26,10 @@ const currentYear = new Date().getFullYear()
           target="_blank"
           class="flex items-center gap-2 bg-primary/5 border border-primary/20 px-4 py-2 rounded-full text-tertiary hover:bg-primary hover:text-white transition-all duration-300"
         >
-          <span class="text-sm font-medium">KURO1402</span>
-          <Github :size="18" />
+          <span class="text-sm text-text font-medium">KURO1402</span>
+          <Github :size="18" class="text-text" />
         </a>
-        <p class="text-xs text-muted/60">
+        <p class="text-xs text-text text-muted/60">
           © {{ currentYear }} AimHigh — Creado por PabloDEV
         </p>
       </div>

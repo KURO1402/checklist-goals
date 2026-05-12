@@ -1,15 +1,14 @@
 <script setup>
-import Header from './components/layout/Header.vue';
-import Footer from './components/layout/Footer.vue';
+import Header from './components/layout/Header.vue'
+import Footer from './components/layout/Footer.vue'
 </script>
 
 <template>
-  <div class="flex flex-col min-h-screen">
-    <Header></Header>
-    <main class="flex-grow">
+  <div class="flex flex-col min-h-screen bg-[--color-background] transition-colors duration-300">
+    <Header />
+    <main class="flex-grow bg-background">
       <RouterView />
     </main>
-    <Footer></Footer>
+    <Footer />
   </div>
-  
 </template>

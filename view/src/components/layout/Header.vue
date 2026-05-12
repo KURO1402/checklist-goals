@@ -16,14 +16,14 @@ const isMenuOpen = ref(false);
         <div aria-hidden="true" class="w-[24px] h-[24px] md:w-[30px] md:h-[30px] bg-primary rounded-[4px] flex items-center justify-center mr-2">
           <div class="w-[8px] h-[8px] md:w-[10px] md:h-[10px] rounded-full bg-background"></div>
         </div>
-        <p class="font-bold text-xl md:text-2xl text-tertiary leading-none">AimHigh</p>
+        <p class="font-bold text-xl md:text-2xl text-tertiary leading-none text-text">AimHigh</p>
       </a>
 
       <!-- Navegación Desktop -->
       <nav class="hidden md:block">
         <ul class="flex items-center text-tertiary font-bold gap-6">
-          <li><a href="#funciona" class="hover:text-primary transition-colors">Cómo funciona</a></li>
-          <li><a href="#porque" class="hover:text-primary transition-colors">Por qué</a></li>
+          <li><a href="#funciona" class="text-text hover:text-primary transition-colors">Cómo funciona</a></li>
+          <li><a href="#porque" class="text-text hover:text-primary transition-colors">Por qué</a></li>
         </ul>
       </nav>
 
