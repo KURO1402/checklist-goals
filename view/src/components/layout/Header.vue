@@ -36,7 +36,7 @@ const isMenuOpen = ref(false);
 
         <button 
           @click="isMenuOpen = !isMenuOpen"
-          class="md:hidden p-2 text-tertiary"
+          class="md:hidden p-2 text-primary"
         >
           <Menu v-if="!isMenuOpen" :size="24" />
           <X v-else :size="24" />
@@ -55,8 +55,8 @@ const isMenuOpen = ref(false);
     >
       <nav v-if="isMenuOpen" class="md:hidden pt-4 pb-2 border-t border-border mt-4">
         <ul class="flex flex-col gap-4 text-tertiary font-bold">
-          <li><a href="#funciona" class="block py-2 hover:text-primary">Cómo funciona</a></li>
-          <li><a href="#porque" class="block py-2 hover:text-primary">Por qué</a></li>
+          <li><a href="#funciona" class="text-text block py-2 hover:text-primary">Cómo funciona</a></li>
+          <li><a href="#porque" class="text-text block py-2 hover:text-primary">Por qué</a></li>
           <li class="sm:hidden pt-2">
             <ButtonInit class="w-full justify-center" />
           </li>
