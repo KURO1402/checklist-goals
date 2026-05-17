@@ -3,7 +3,7 @@
     import { Check, Clock4, Grid2X2Plus } from 'lucide-vue-next';
 </script>
 <template>
-  <section class="bg-background border-b border-border py-10 md:py-16 px-5 md:px-16 lg:px-48">
+  <section id="funciona" class="bg-background border-b border-border py-10 md:py-16 px-5 md:px-16 lg:px-48">
     
     <!-- Título -->
     <div class="flex gap-3 md:gap-5 flex-col">

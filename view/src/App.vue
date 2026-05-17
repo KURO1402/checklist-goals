@@ -4,7 +4,7 @@ import Footer from './components/layout/Footer.vue'
 </script>
 
 <template>
-  <div class="flex flex-col min-h-screen bg-[--color-background] transition-colors duration-300">
+  <div class="flex flex-col min-h-screen bg-bg-background transition-colors duration-300">
     <Header />
     <main class="flex-grow bg-background">
       <RouterView />

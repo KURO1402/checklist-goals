@@ -10,7 +10,7 @@
     })
 </script>
 <template>
-    <div class="border border-border rounded-2xl p-5 bg-surface flex flex-col gap-2">
+    <div class="border border-border rounded-2xl p-5 bg-surface flex flex-col gap-3 hover:bg-bg-hover">
         <p class="text-primary font-bold text-sm">{{ number_step }}</p>
         <div class="flex">
             <div class="bg-primary/10 p-1.5 rounded-xl">
