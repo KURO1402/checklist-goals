@@ -1,9 +1,18 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 import { User, Lock, Eye, EyeOff } from 'lucide-vue-next'
 import { RouterLink } from 'vue-router'
-
 const showPassword = ref(false)
+const usuario = reactive({
+  nombre: '',
+  clave: ''
+})
+
+const enviarDatos = () => {
+  console.log(`Uusario: ${usuario.nombre}`)
+  console.log(`Clave: ${usuario.clave}`)
+}
+
 </script>
 <template>
   <div class="flex justify-center items-start md:items-center min-h-screen bg-background px-5 py-12">
@@ -26,7 +35,7 @@ const showPassword = ref(false)
       </div>
 
       <!-- Formulario -->
-      <form class="flex flex-col gap-4">
+      <form class="flex flex-col gap-4" @submit.prevent="enviarDatos">
 
         <!-- Usuario -->
         <div class="flex flex-col gap-1.5">
@@ -34,6 +43,7 @@ const showPassword = ref(false)
           <div class="relative">
             <User class="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted" :size="16" />
             <input
+              v-model="usuario.nombre"
               type="text"
               placeholder="tu_usuario"
               class="w-full pl-9 pr-4 py-2.5 rounded-xl border border-border bg-background text-text text-sm placeholder:text-text-muted/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all"
@@ -47,6 +57,7 @@ const showPassword = ref(false)
           <div class="relative">
             <Lock class="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted" :size="16" />
             <input
+              v-model="usuario.clave"
               :type="showPassword ? 'text' : 'password'"
               placeholder="123456"
               class="w-full pl-9 pr-10 py-2.5 rounded-xl border border-border bg-background text-text text-sm placeholder:text-text-muted/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all"

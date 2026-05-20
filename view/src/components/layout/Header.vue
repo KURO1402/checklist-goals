@@ -1,12 +1,31 @@
 <script setup>
 import { Menu, X } from 'lucide-vue-next';
-import { ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router'; // 1. Importamos useRouter
+import { ref, computed } from 'vue';
 import ButtonInit from '../ui/ButtonInit.vue';
 import ThemeToggle from '../ui/ThemeToggle.vue';
 
 const isMenuOpen = ref(false);
+const route = useRoute();
+const router = useRouter(); // 2. Instanciamos el router
 
-const scrollTo = (id) => {
+const pathActual = computed(() => route.path)
+
+const scrollTo = async (id) => {
+  isMenuOpen.value = false;
+
+  if (pathActual.value !== '/') {
+    await router.push('/');
+    
+    setTimeout(() => {
+      ejecutarScroll(id);
+    }, 100);
+  } else {
+    ejecutarScroll(id);
+  }
+}
+
+const ejecutarScroll = (id) => {
   if (id === 'inicio') {
     window.scrollTo({ top: 0, behavior: 'smooth' })
     return
@@ -17,7 +36,6 @@ const scrollTo = (id) => {
   const top = el.getBoundingClientRect().top + window.scrollY - offset
   window.scrollTo({ top, behavior: 'smooth' })
 }
-
 </script>
 
 <template>
@@ -49,7 +67,7 @@ const scrollTo = (id) => {
       <div class="flex items-center gap-3">
         <ThemeToggle />
 
-        <div class="hidden sm:block pl-5">
+        <div v-if="pathActual === '/'" class="hidden sm:block pl-5">
           <ButtonInit />
         </div>
 

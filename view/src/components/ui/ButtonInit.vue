@@ -1,16 +1,17 @@
 <script setup>
-import { MoveRight } from 'lucide-vue-next';
+import { MoveRight } from 'lucide-vue-next'
+import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <a href="/login">
-  <button class="aimhigh-button group">
-    <span class="relative z-10 flex items-center gap-2">
-      Entrar
-      <MoveRight :size="18" />
-    </span>
-  </button>
-  </a>
+  <RouterLink to="/login">
+    <button class="aimhigh-button group">
+      <span class="relative z-10 flex items-center gap-2">
+        Entrar
+        <MoveRight :size="18" />
+      </span>
+    </button>
+  </RouterLink>
 </template>
 
 <style scoped>
