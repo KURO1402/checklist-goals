@@ -22,8 +22,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -38,10 +42,6 @@
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "UsuarioService.cs",
@@ -51,8 +51,7 @@
               "RelativeToolTip": "server\\Services\\UsuarioService.cs",
               "ViewState": "AgIAADMAAAAAAAAAAAAmwEQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T15:00:02.756Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-09T15:00:02.756Z"
             },
             {
               "$type": "Document",
@@ -64,8 +63,7 @@
               "RelativeToolTip": "server\\Controllers\\UsuarioController.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAYwCkAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T14:59:10.043Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-09T14:59:10.043Z"
             }
           ]
         }

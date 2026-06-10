@@ -2,8 +2,13 @@
 import { ref, reactive } from 'vue'
 import { User, Lock, Eye, EyeOff } from 'lucide-vue-next'
 import { RouterLink } from 'vue-router'
+import { useAuthStore } from '../stores/authStore'
+
+const authStore = useAuthStore();
 const showPassword = ref(false)
 const loginMessage = ref(false)
+const okResponse = ref(false);
+const cargando = ref(false);
 const form = reactive({
   nombre: '',
   clave: ''
@@ -17,28 +22,50 @@ const inputClass = (hasError) => [
     ? 'border-red-500 ring-2 ring-red-500/15'
     : 'border-border focus:border-primary focus:ring-primary/15'
 ]
+const enviarDatos = async () => {
+  loginMessage.value = false
+  message.value = ""
 
-const enviarDatos = () => {
-  // Nueva lógica para mensajes específicos
   if (!form.nombre && !form.clave) {
     loginMessage.value = true
-    message.value = "Falta ingresar el form y la contraseña."
-  } else if (!form.nombre) {
+    message.value = "Falta ingresar el nombre y la contraseña."
+    return
+  }
+
+  if (!form.nombre) {
     loginMessage.value = true
-    message.value = "Falta ingresar el form."
-  } else if (!form.clave) {
+    message.value = "Falta ingresar el nombre."
+    return
+  }
+
+  if (!form.clave) {
     loginMessage.value = true
     message.value = "Falta ingresar la contraseña."
-  } else {
-    loginMessage.value = false
-    message.value = ""
+    return
+  }
 
-    // Tu lógica original de consola
-    console.log(`Usuario: ${form.nombre}`)
-    console.log(`Clave: ${form.clave}`)
+  cargando.value = true
+
+  try {
+    const response = await authStore.loginUsuario(form.nombre, form.clave)
+
+    if (response.ok) {
+      okResponse.value = false
+      alert(response.mensaje)
+      console.log('Login correcto: ', response)
+    } else {
+      okResponse.value = true
+      loginMessage.value = true
+      message.value = response.mensaje
+    }
+  } catch (error) {
+    loginMessage.value = true
+    message.value = error.response?.data?.mensaje || 'Error de conexión con el servidor.'
+    console.error('Error en la petición:', error)
+  } finally {
+    cargando.value = false
   }
 }
-
 </script>
 <template>
   <div class="flex justify-center items-start md:mt-7 min-h-screen bg-background px-5 py-12">
@@ -69,7 +96,8 @@ const enviarDatos = () => {
           <label class="text-sm font-medium text-text-muted">Nombre de form</label>
           <div class="relative">
             <User class="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted" :size="16" />
-            <input v-model="form.nombre" type="text" placeholder="tu_usuario" :class="inputClass(loginMessage && !form.nombre)" />
+            <input v-model="form.nombre" type="text" placeholder="tu_usuario"
+              :class="inputClass(loginMessage && !form.nombre || okResponse)" />
           </div>
         </div>
 
@@ -79,7 +107,7 @@ const enviarDatos = () => {
           <div class="relative">
             <Lock class="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted" :size="16" />
             <input v-model="form.clave" placeholder="123456" :type="showPassword ? 'text' : 'password'"
-              :class="inputClass(loginMessage && !form.clave)" />
+              :class="inputClass(loginMessage && !form.clave || okResponse)" />
             <button type="button" @click="showPassword = !showPassword"
               class="absolute right-3 top-1/2 -translate-y-1/2 text-text-muted hover:text-primary transition-colors">
               <Eye v-if="!showPassword" :size="16" />
@@ -92,9 +120,11 @@ const enviarDatos = () => {
         </div>
 
         <!-- Submit -->
-        <button type="submit"
-          class="w-full py-2.5 mt-1 bg-primary text-[#0a1a0d] font-semibold text-sm rounded-xl hover:bg-primary/90 active:scale-95 transition-all duration-200">
-          Iniciar sesión
+        <button type="submit" :disabled="cargando" class="w-full py-2.5 mt-1 bg-primary text-[#0a1a0d] font-semibold text-sm rounded-xl hover:bg-primary/90 active:scale-95 transition-all duration-200 
+         disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none">
+
+          {{ cargando ? 'Iniciando sesión...' : 'Iniciar sesión' }}
+
         </button>
       </form>
       <div v-if="loginMessage" class="text-red-500 mt-5 text-sm text-center font-medium">
