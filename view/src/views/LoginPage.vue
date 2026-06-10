@@ -122,9 +122,7 @@ const enviarDatos = async () => {
         <!-- Submit -->
         <button type="submit" :disabled="cargando" class="w-full py-2.5 mt-1 bg-primary text-[#0a1a0d] font-semibold text-sm rounded-xl hover:bg-primary/90 active:scale-95 transition-all duration-200 
          disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none">
-
           {{ cargando ? 'Iniciando sesión...' : 'Iniciar sesión' }}
-
         </button>
       </form>
       <div v-if="loginMessage" class="text-red-500 mt-5 text-sm text-center font-medium">
