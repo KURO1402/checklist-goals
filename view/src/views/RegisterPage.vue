@@ -2,13 +2,23 @@
 import { ref, reactive } from 'vue'
 import { User, Lock, Eye, EyeOff } from 'lucide-vue-next'
 import { RouterLink } from 'vue-router'
+import { useAuthStore } from '../stores/authStore'
+
+// 1. Agrupamos inicializaciones arriba
+const authStore = useAuthStore()
 
 const showPassword = ref(false)
 const showPasswordConfirm = ref(false)
 const registerMessage = ref(false)
+const okResponse = ref(false)
+const cargando = ref(false)
 const message = ref('')
 
-const form = reactive({ nombre: '', clave: '', claveConfirm: '' })
+const form = reactive({
+    nombre: '',
+    clave: '',
+    claveConfirm: ''
+})
 
 const inputClass = (hasError) => [
     'w-full pl-9 pr-10 py-2.5 rounded-xl border bg-background text-text text-sm',
@@ -18,23 +28,55 @@ const inputClass = (hasError) => [
         : 'border-border focus:border-primary focus:ring-primary/15'
 ]
 
-const enviarDatos = () => {
+const enviarDatos = async () => {
+    registerMessage.value = false
+    message.value = ''
+
     if (!form.nombre && !form.clave) {
         registerMessage.value = true
         message.value = 'Falta ingresar el usuario y la contraseña.'
-    } else if (!form.nombre) {
+        return
+    }
+
+    if (!form.nombre) {
         registerMessage.value = true
         message.value = 'Falta ingresar el usuario.'
-    } else if (!form.clave) {
+        return
+    }
+
+    if (!form.clave) {
         registerMessage.value = true
         message.value = 'Falta ingresar la contraseña.'
-    } else if (form.clave !== form.claveConfirm) {
+        return
+    }
+
+    if (form.clave !== form.claveConfirm) {
         registerMessage.value = true
         message.value = 'Las contraseñas no coinciden.'
-    } else {
-        registerMessage.value = false
-        message.value = ''
-        console.log(`Usuario: ${form.nombre} con contraseña ${form.clave}`)
+        return
+    }
+
+    cargando.value = true
+
+    try {
+        const response = await authStore.registerUsusario(form.nombre, form.clave)
+
+        if (response.ok) {
+            okResponse.value = false
+            alert(response.mensaje || '¡Registro exitoso!')
+            console.log("Registro correcto:", response)
+        } else {
+            okResponse.value = true
+            registerMessage.value = true
+            message.value = response.mensaje
+        }
+    } catch (error) {
+        okResponse.value = true
+        registerMessage.value = true
+        message.value = error.response?.data?.mensaje || 'Error al conectar con el servidor.'
+        console.error("Error en registro:", error)
+    } finally {
+        cargando.value = false
     }
 }
 </script>
@@ -65,7 +107,7 @@ const enviarDatos = () => {
                     <div class="relative">
                         <User class="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted" :size="16" />
                         <input v-model="form.nombre" type="text" placeholder="tu_usuario"
-                            :class="inputClass(registerMessage && !form.nombre)" />
+                            :class="inputClass(registerMessage && !form.nombre || okResponse)" />
 
                     </div>
                 </div>
@@ -101,9 +143,9 @@ const enviarDatos = () => {
                 </div>
 
                 <!-- Submit -->
-                <button type="submit"
-                    class="w-full py-2.5 mt-1 bg-primary text-[#0a1a0d] font-semibold text-sm rounded-xl hover:bg-primary/90 active:scale-95 transition-all duration-200">
-                    Registrarse
+                <button type="submit" :disabled="cargando"
+                    class="w-full py-2.5 mt-1 bg-primary text-[#0a1a0d] font-semibold text-sm rounded-xl hover:bg-primary/90 active:scale-95 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none disabled:cursor-not-allowed disabled:pointer-events-none">
+                    {{ cargando ? 'Registrando cuenta...' : 'Registrarse' }}
                 </button>
                 <div v-if="registerMessage" class="text-red-500 mt-5 text-sm text-center font-medium">
                     <p>{{ message }}</p>

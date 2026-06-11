@@ -1,13 +1,16 @@
 <script setup>
+import { useAuthStore } from '../../stores/authStore.js';
 import { Menu, X } from 'lucide-vue-next';
-import { useRoute, useRouter } from 'vue-router'; // 1. Importamos useRouter
+import { useRoute, useRouter } from 'vue-router'; 
 import { ref, computed } from 'vue';
 import ButtonInit from '../ui/ButtonInit.vue';
+import LogoutButton from '../ui/LogoutButton.vue';
 import ThemeToggle from '../ui/ThemeToggle.vue';
 
+const authStore = useAuthStore();
 const isMenuOpen = ref(false);
 const route = useRoute();
-const router = useRouter(); // 2. Instanciamos el router
+const router = useRouter(); 
 
 const pathActual = computed(() => route.path)
 
@@ -66,8 +69,11 @@ const ejecutarScroll = (id) => {
 
       <div class="flex items-center gap-3">
         <ThemeToggle />
-
-        <div v-if="pathActual === '/'" class="hidden sm:block pl-5">
+        <div v-if="authStore.usuario" class="flex items-center">
+          <p class="text-text font-bold">{{authStore.usuario}}</p>
+          <LogoutButton />
+        </div>
+        <div v-if="pathActual === '/' && !authStore.usuario" class="hidden sm:block pl-5">
           <ButtonInit />
         </div>
 
