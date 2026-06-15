@@ -2,7 +2,7 @@
 import { ref, reactive } from 'vue'
 import { User, Lock, Eye, EyeOff } from 'lucide-vue-next'
 import { RouterLink } from 'vue-router'
-import { useAuthStore } from '../stores/authStore'
+import { useAuthStore } from '../../stores/authStore'
 
 // 1. Agrupamos inicializaciones arriba
 const authStore = useAuthStore()

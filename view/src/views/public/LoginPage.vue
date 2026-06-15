@@ -1,10 +1,11 @@
 <script setup>
 import { ref, reactive } from 'vue'
 import { User, Lock, Eye, EyeOff } from 'lucide-vue-next'
-import { RouterLink } from 'vue-router'
-import { useAuthStore } from '../stores/authStore'
+import { RouterLink, useRouter } from 'vue-router'
+import { useAuthStore } from '../../stores/authStore'
 
 const authStore = useAuthStore();
+const router = useRouter();
 const showPassword = ref(false)
 const loginMessage = ref(false)
 const okResponse = ref(false);
@@ -53,6 +54,7 @@ const enviarDatos = async () => {
       okResponse.value = false
       alert(response.mensaje)
       console.log('Login correcto: ', response)
+      router.push('/dashboard')
     } else {
       okResponse.value = true
       loginMessage.value = true

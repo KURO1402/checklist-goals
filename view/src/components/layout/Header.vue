@@ -1,7 +1,7 @@
 <script setup>
 import { useAuthStore } from '../../stores/authStore.js';
 import { Menu, X } from 'lucide-vue-next';
-import { useRoute, useRouter } from 'vue-router'; 
+import { useRoute, useRouter } from 'vue-router';
 import { ref, computed } from 'vue';
 import ButtonInit from '../ui/ButtonInit.vue';
 import LogoutButton from '../ui/LogoutButton.vue';
@@ -10,7 +10,7 @@ import ThemeToggle from '../ui/ThemeToggle.vue';
 const authStore = useAuthStore();
 const isMenuOpen = ref(false);
 const route = useRoute();
-const router = useRouter(); 
+const router = useRouter();
 
 const pathActual = computed(() => route.path)
 
@@ -19,7 +19,7 @@ const scrollTo = async (id) => {
 
   if (pathActual.value !== '/') {
     await router.push('/');
-    
+
     setTimeout(() => {
       ejecutarScroll(id);
     }, 100);
@@ -55,7 +55,7 @@ const ejecutarScroll = (id) => {
       </a>
 
       <!-- Navegación Desktop -->
-      <nav class="hidden md:block">
+      <nav v-if="!authStore.usuario" class="hidden md:block">
         <ul class="flex items-center text-tertiary font-bold gap-6">
           <li><a @click="scrollTo('inicio')"
               class="text-text hover:text-primary transition-colors cursor-pointer">Inicio</a></li>
@@ -67,13 +67,24 @@ const ejecutarScroll = (id) => {
 
       </nav>
 
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-5">
         <ThemeToggle />
-        <div v-if="authStore.usuario" class="flex items-center">
-          <p class="text-text font-bold">{{authStore.usuario}}</p>
+        <div v-if="authStore.usuario"
+          class="hidden md:flex items-center gap-3 bg-secondary/30 border border-border/60 pl-3 pr-2 py-1.5 rounded-full hover:border-primary/30 transition-all duration-300">
+          <div
+            class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-background font-bold text-sm uppercase select-none">
+            {{ authStore.usuario.charAt(0) }}
+          </div>
+          <div class="flex flex-col max-w-[120px] md:max-w-[160px]">
+            <span class="text-xs text-text-muted font-medium leading-none mb-0.5">Sesión activa</span>
+            <span class="text-sm font-semibold text-text truncate tracking-tight" :title="authStore.usuario">
+              {{ authStore.usuario }}
+            </span>
+          </div>
+          <div class="h-6 w-[1px] bg-border mx-1"></div>
           <LogoutButton />
         </div>
-        <div v-if="pathActual === '/' && !authStore.usuario" class="hidden sm:block pl-5">
+        <div v-if="!authStore.usuario" class="hidden md:flex">
           <ButtonInit />
         </div>
 
@@ -89,14 +100,33 @@ const ejecutarScroll = (id) => {
       enter-from-class="transform -translate-y-4 opacity-0" enter-to-class="transform translate-y-0 opacity-100"
       leave-active-class="transition duration-150 ease-in" leave-from-class="transform translate-y-0 opacity-100"
       leave-to-class="transform -translate-y-4 opacity-0">
-      <nav v-if="isMenuOpen" class="md:hidden pt-4 pb-2 border-t border-border mt-4">
-        <ul class="flex flex-col gap-4 text-tertiary font-bold">
-          <li><a @click="scrollTo('inicio')" class="text-text block py-2 hover:text-primary cursor-pointer">Inicio</a>
+
+      <nav v-if="isMenuOpen" class="md:hidden pt-4 pb-4 border-t border-border mt-4">
+        <ul class="flex flex-col gap-2 text-tertiary font-bold">
+
+          <template v-if="!authStore.usuario">
+            <li><a @click="scrollTo('inicio')" class="text-text block py-2 hover:text-primary cursor-pointer">Inicio</a>
+            </li>
+            <li><a @click="scrollTo('funciona')" class="text-text block py-2 hover:text-primary cursor-pointer">Cómo
+                funciona</a></li>
+            <li><a @click="scrollTo('porque')" class="text-text block py-2 hover:text-primary cursor-pointer">Por
+                qué</a></li>
+          </template>
+
+          <li v-else class="flex items-center justify-between py-1">
+            <div class="flex items-center gap-3 py-2">
+              <div
+                class="w-7 h-7 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs uppercase select-none">
+                {{ authStore.usuario.charAt(0) }}
+              </div>
+              <span class="text-text text-base font-medium truncate max-w-[180px]">
+                {{ authStore.usuario }}
+              </span>
+            </div>
+
+            <LogoutButton class="p-2 text-red-500 hover:bg-red-500/10 rounded-lg transition-colors" />
           </li>
-          <li><a @click="scrollTo('funciona')" class="text-text block py-2 hover:text-primary cursor-pointer">Cómo
-              funciona</a></li>
-          <li><a @click="scrollTo('porque')" class="text-text block py-2 hover:text-primary cursor-pointer">Por qué</a>
-          </li>
+
         </ul>
       </nav>
     </transition>

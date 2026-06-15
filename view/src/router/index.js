@@ -6,19 +6,43 @@ const router = createRouter({
         {
             path: '/',
             name: 'Inicio',
-            component: () => import('../views/LandingView.vue')
+            component: () => import('../views/public/LandingView.vue')
         },
         {
             path: '/login',
             name: 'Inicio de sesion',
-            component: () => import('../views/LoginPage.vue')
+            component: () => import('../views/public/LoginPage.vue')
         },
         {
             path: '/register',
             name: 'Registro de usuario',
-            component: () => import('../views/RegisterPage.vue')
+            component: () => import('../views/public/RegisterPage.vue')
+        },
+        {
+            path: '/dashboard',
+            name: 'Dashboard',
+            component: () => import('../views/private/Dashboard.vue'),
+            meta: {requiresAuth: true}
         }
     ]
+});
+
+function isAuthenticated() {
+  return !!sessionStorage.getItem('token') 
+}
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.requiresAuth) {
+    
+    if (isAuthenticated()) {
+      next() 
+    } else {
+      next({ name: 'Inicio de sesion' }) 
+    }
+
+  } else {
+    next() 
+  }
 })
 
 export default router
