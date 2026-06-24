@@ -16,9 +16,9 @@ namespace server.Controllers
         }
 
         [HttpPost("registrar")]
-        public IActionResult RegistrarUsuario([FromBody] UsuarioRegistroDto dto)
+        public async Task<IActionResult> RegistrarUsuario([FromBody] UsuarioRegistroDto dto)
         {
-            var respuesta = _usuarioService.RegistrarUsuario(dto);
+            var respuesta = await _usuarioService.RegistrarUsuarioAsync(dto);
             if (!respuesta.Ok)
             {
                 var errorDto = new ErrorResponseDto
@@ -33,9 +33,9 @@ namespace server.Controllers
         }
 
         [HttpPost("login")]
-        public IActionResult LoginUsuario([FromBody] UsuarioLoginDto dto)
+        public async Task<IActionResult> LoginUsuario([FromBody] UsuarioLoginDto dto)
         {
-            var respuesta = _usuarioService.LoginUsuario(dto);
+            var respuesta = await _usuarioService.LoginUsuarioAsync(dto);
             if (!respuesta.Ok)
             {
                 var errorDto = new ErrorResponseDto

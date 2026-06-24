@@ -9,5 +9,6 @@ namespace server.Data
         {
         }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Objetivo> Objetivos { get; set; }
     }
 }

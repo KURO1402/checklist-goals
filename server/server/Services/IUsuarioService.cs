@@ -3,8 +3,8 @@ namespace server.Services
 {
     public interface IUsuarioService
     {
-        AuthResponseDto RegistrarUsuario(UsuarioRegistroDto dto);
+        Task<AuthResponseDto> RegistrarUsuarioAsync(UsuarioRegistroDto dto);
 
-        AuthResponseDto LoginUsuario(UsuarioLoginDto dto);
+        Task<AuthResponseDto> LoginUsuarioAsync(UsuarioLoginDto dto);
     }
 }

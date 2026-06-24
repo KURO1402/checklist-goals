@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using server.Data;
 using server.Models;
 
@@ -12,15 +13,15 @@ namespace server.Repositories
             _context = context;
         }
 
-        public Usuario? ObtenerUsuarioPorNombre(string NombreUsuario)
+        public async Task<Usuario?> ObtenerUsuarioPorNombreAsync(string NombreUsuario)
         {
-            return _context.Usuarios.FirstOrDefault(u => u.NombreUsuario == NombreUsuario);
+            return await _context.Usuarios.FirstOrDefaultAsync(u => u.NombreUsuario == NombreUsuario);
         }
 
-        public void RegistrarUsuario(Usuario usuario)
+        public async Task RegistrarUsuarioAsync(Usuario usuario)
         {
-            _context.Usuarios.Add(usuario);
-            _context.SaveChanges();
+            await _context.Usuarios.AddAsync(usuario);
+            await _context.SaveChangesAsync();
         }
     }
 }

@@ -4,8 +4,8 @@ namespace server.Repositories
 {
     public interface IUsuarioRepository
     {
-        Usuario ? ObtenerUsuarioPorNombre(string NombreUsuario);
+        Task<Usuario?> ObtenerUsuarioPorNombreAsync(string NombreUsuario);
 
-        void RegistrarUsuario(Usuario usuario);
+        Task RegistrarUsuarioAsync(Usuario usuario);
     }
 }

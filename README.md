@@ -13,19 +13,23 @@ Este proyecto sirve como práctica para mejorar habilidades en **desarrollo web 
 
 ## Frontend
 
-* Vue.js
-* HTML
-* CSS
-* JavaScript
+* Vue 3 (Composition API, `<script setup>`)
+* Vite 8
+* Tailwind CSS 4
+* Pinia (state management)
+* Vue Router 4
+* Axios
+* Lucide Vue Next (iconos)
 
 ## Backend
 
-* FastAPI
-* Python
+* .NET 9 ASP.NET Core Web API (C#)
+* Entity Framework Core
+* JWT + BCrypt (autenticación)
 
 ## Base de Datos
 
-* PostgreSQL
+* PostgreSQL (Supabase)
 
 ---
 
@@ -34,14 +38,14 @@ Este proyecto sirve como práctica para mejorar habilidades en **desarrollo web 
 La aplicación sigue una arquitectura **Full Stack desacoplada**, donde el frontend consume datos a través de una API REST expuesta por el backend.
 
 ```text
-Frontend (Vue)
+Frontend (Vue 3 + Vite)
       │
-      │ HTTP / REST API
+      │ HTTPS / REST API (JWT Auth)
       ▼
-Backend (FastAPI)
+Backend (.NET 9 ASP.NET Core)
       │
       ▼
-Database (PostgreSQL)
+Database (PostgreSQL - Supabase)
 ```
 
 Este enfoque permite:
@@ -58,7 +62,7 @@ Este proyecto fue desarrollado con fines de aprendizaje para:
 
 * Practicar desarrollo **Full Stack**
 * Trabajar con **APIs REST**
-* Aprender **Python con FastAPI**
+* Aprender **.NET con ASP.NET Core**
 * Utilizar **PostgreSQL** como base de datos
 * Implementar un flujo completo de **desarrollo y despliegue de aplicaciones web**
 

@@ -20,9 +20,9 @@ namespace server.Services
             _configuration = configuration;
         }
 
-        public AuthResponseDto RegistrarUsuario(UsuarioRegistroDto dto)
+        public async Task<AuthResponseDto> RegistrarUsuarioAsync(UsuarioRegistroDto dto)
         {
-            var usuarioExistente = _usuarioRepository.ObtenerUsuarioPorNombre(dto.NombreUsuario);
+            var usuarioExistente = await _usuarioRepository.ObtenerUsuarioPorNombreAsync(dto.NombreUsuario);
             if (usuarioExistente != null)
             {
                 return new AuthResponseDto { Ok = false, Mensaje = "El nombre de usuario ya está en uso." };
@@ -36,9 +36,8 @@ namespace server.Services
                 ClaveHash = claveEncriptada
             };
 
-            _usuarioRepository.RegistrarUsuario(nuevoUsuario);
+            await _usuarioRepository.RegistrarUsuarioAsync(nuevoUsuario);
 
-            // Generamos el token para el nuevo usuario
             string token = GenerarJwtToken(nuevoUsuario);
 
             return new AuthResponseDto
@@ -50,9 +49,9 @@ namespace server.Services
             };
         }
 
-        public AuthResponseDto LoginUsuario(UsuarioLoginDto dto)
+        public async Task<AuthResponseDto> LoginUsuarioAsync(UsuarioLoginDto dto)
         {
-            var usuario = _usuarioRepository.ObtenerUsuarioPorNombre(dto.NombreUsuario);
+            var usuario = await _usuarioRepository.ObtenerUsuarioPorNombreAsync(dto.NombreUsuario);
             if (usuario == null)
             {
                 return new AuthResponseDto { Ok = false, Mensaje = "Usuario o clave incorrectos." };
@@ -64,7 +63,6 @@ namespace server.Services
                 return new AuthResponseDto { Ok = false, Mensaje = "Usuario o clave incorrectos." };
             }
 
-            // Generamos el token tras el login exitoso
             string token = GenerarJwtToken(usuario);
 
             return new AuthResponseDto

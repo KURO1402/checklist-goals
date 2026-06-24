@@ -6,11 +6,11 @@ namespace server.Models
     public class Usuario
     {
 
-        [Column("IdUsuario")]
+        [Column("id_usuario")]
         public int Id { get; set; }
-        [Column("NombreUsuario")]
+        [Column("nombre_usuario")]
         public string NombreUsuario { get; set; } = string.Empty;
-        [Column("ClaveUsuario")]
+        [Column("clave_usuario")]
         public string ClaveHash { get; set; } = string.Empty;
     }
 }

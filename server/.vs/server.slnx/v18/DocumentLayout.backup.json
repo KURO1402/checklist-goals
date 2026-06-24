@@ -3,16 +3,28 @@
   "WorkspaceRootPath": "C:\\PRACTICAS-DE-CODIGO\\checklist-goals\\server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3461765F-60A1-21BC-764E-FC799869FE2F}|server\\server.csproj|c:\\practicas-de-codigo\\checklist-goals\\server\\server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3461765F-60A1-21BC-764E-FC799869FE2F}|server\\server.csproj|solutionrelative:server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3461765F-60A1-21BC-764E-FC799869FE2F}|server\\server.csproj|c:\\practicas-de-codigo\\checklist-goals\\server\\server\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3461765F-60A1-21BC-764E-FC799869FE2F}|server\\server.csproj|solutionrelative:server\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3461765F-60A1-21BC-764E-FC799869FE2F}|server\\server.csproj|c:\\practicas-de-codigo\\checklist-goals\\server\\server\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3461765F-60A1-21BC-764E-FC799869FE2F}|server\\server.csproj|solutionrelative:server\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3461765F-60A1-21BC-764E-FC799869FE2F}|server\\server.csproj|c:\\practicas-de-codigo\\checklist-goals\\server\\server\\services\\iusuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3461765F-60A1-21BC-764E-FC799869FE2F}|server\\server.csproj|solutionrelative:server\\services\\iusuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3461765F-60A1-21BC-764E-FC799869FE2F}|server\\server.csproj|c:\\practicas-de-codigo\\checklist-goals\\server\\server\\repositories\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3461765F-60A1-21BC-764E-FC799869FE2F}|server\\server.csproj|solutionrelative:server\\repositories\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3461765F-60A1-21BC-764E-FC799869FE2F}|server\\server.csproj|c:\\practicas-de-codigo\\checklist-goals\\server\\server\\repositories\\objetivorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3461765F-60A1-21BC-764E-FC799869FE2F}|server\\server.csproj|solutionrelative:server\\repositories\\objetivorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3461765F-60A1-21BC-764E-FC799869FE2F}|server\\server.csproj|c:\\practicas-de-codigo\\checklist-goals\\server\\server\\repositories\\iusuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3461765F-60A1-21BC-764E-FC799869FE2F}|server\\server.csproj|solutionrelative:server\\repositories\\iusuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3461765F-60A1-21BC-764E-FC799869FE2F}|server\\server.csproj|c:\\practicas-de-codigo\\checklist-goals\\server\\server\\repositories\\iobjetivorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3461765F-60A1-21BC-764E-FC799869FE2F}|server\\server.csproj|solutionrelative:server\\repositories\\iobjetivorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,39 +43,75 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\PRACTICAS-DE-CODIGO\\checklist-goals\\server\\server\\Program.cs",
-              "RelativeDocumentMoniker": "server\\Program.cs",
-              "ToolTip": "C:\\PRACTICAS-DE-CODIGO\\checklist-goals\\server\\server\\Program.cs",
-              "RelativeToolTip": "server\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T15:34:30.444Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "UsuarioService.cs",
               "DocumentMoniker": "C:\\PRACTICAS-DE-CODIGO\\checklist-goals\\server\\server\\Services\\UsuarioService.cs",
               "RelativeDocumentMoniker": "server\\Services\\UsuarioService.cs",
               "ToolTip": "C:\\PRACTICAS-DE-CODIGO\\checklist-goals\\server\\server\\Services\\UsuarioService.cs",
               "RelativeToolTip": "server\\Services\\UsuarioService.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAmwEQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEkAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T15:00:02.756Z"
+              "WhenOpened": "2026-06-22T17:47:07.942Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UsuarioController.cs",
-              "DocumentMoniker": "C:\\PRACTICAS-DE-CODIGO\\checklist-goals\\server\\server\\Controllers\\UsuarioController.cs",
-              "RelativeDocumentMoniker": "server\\Controllers\\UsuarioController.cs",
-              "ToolTip": "C:\\PRACTICAS-DE-CODIGO\\checklist-goals\\server\\server\\Controllers\\UsuarioController.cs",
-              "RelativeToolTip": "server\\Controllers\\UsuarioController.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAYwCkAAAARAAAAAAAAAA==",
+              "Title": "IUsuarioService.cs",
+              "DocumentMoniker": "C:\\PRACTICAS-DE-CODIGO\\checklist-goals\\server\\server\\Services\\IUsuarioService.cs",
+              "RelativeDocumentMoniker": "server\\Services\\IUsuarioService.cs",
+              "ToolTip": "C:\\PRACTICAS-DE-CODIGO\\checklist-goals\\server\\server\\Services\\IUsuarioService.cs",
+              "RelativeToolTip": "server\\Services\\IUsuarioService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T14:59:10.043Z"
+              "WhenOpened": "2026-06-22T17:46:53.182Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ObjetivoRepository.cs",
+              "DocumentMoniker": "C:\\PRACTICAS-DE-CODIGO\\checklist-goals\\server\\server\\Repositories\\ObjetivoRepository.cs",
+              "RelativeDocumentMoniker": "server\\Repositories\\ObjetivoRepository.cs",
+              "ToolTip": "C:\\PRACTICAS-DE-CODIGO\\checklist-goals\\server\\server\\Repositories\\ObjetivoRepository.cs",
+              "RelativeToolTip": "server\\Repositories\\ObjetivoRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-22T17:28:06.859Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UsuarioRepository.cs",
+              "DocumentMoniker": "C:\\PRACTICAS-DE-CODIGO\\checklist-goals\\server\\server\\Repositories\\UsuarioRepository.cs",
+              "RelativeDocumentMoniker": "server\\Repositories\\UsuarioRepository.cs",
+              "ToolTip": "C:\\PRACTICAS-DE-CODIGO\\checklist-goals\\server\\server\\Repositories\\UsuarioRepository.cs",
+              "RelativeToolTip": "server\\Repositories\\UsuarioRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-22T17:25:45.683Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IUsuarioRepository.cs",
+              "DocumentMoniker": "C:\\PRACTICAS-DE-CODIGO\\checklist-goals\\server\\server\\Repositories\\IUsuarioRepository.cs",
+              "RelativeDocumentMoniker": "server\\Repositories\\IUsuarioRepository.cs",
+              "ToolTip": "C:\\PRACTICAS-DE-CODIGO\\checklist-goals\\server\\server\\Repositories\\IUsuarioRepository.cs",
+              "RelativeToolTip": "server\\Repositories\\IUsuarioRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-22T17:23:23.124Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IObjetivoRepository.cs",
+              "DocumentMoniker": "C:\\PRACTICAS-DE-CODIGO\\checklist-goals\\server\\server\\Repositories\\IObjetivoRepository.cs",
+              "RelativeDocumentMoniker": "server\\Repositories\\IObjetivoRepository.cs",
+              "ToolTip": "C:\\PRACTICAS-DE-CODIGO\\checklist-goals\\server\\server\\Repositories\\IObjetivoRepository.cs",
+              "RelativeToolTip": "server\\Repositories\\IObjetivoRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-22T17:23:21.841Z"
             }
           ]
         }
