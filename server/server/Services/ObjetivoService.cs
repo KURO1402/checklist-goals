@@ -21,7 +21,7 @@ namespace server.Services
                 DescripcionObjetivo = dto.DescripcionObjetivo,
                 TotalDias = dto.TotalDias,
                 DiasCompletados = 0,
-                EstadoObjetivo = "en_progreso",
+                EstadoObjetivo = "pendiente",
                 FechaCreacion = DateTime.UtcNow,
                 IdUsuario = idUsuario
             };
@@ -41,7 +41,7 @@ namespace server.Services
         {
             return new ObjetivoResponseDto
             {
-                IdObjetivo = objetivo.IdObjetivo,
+                IdObjetivo = objetivo.Id,
                 NombreObjetivo = objetivo.NombreObjetivo,
                 DescripcionObjetivo = objetivo.DescripcionObjetivo,
                 TotalDias = objetivo.TotalDias,

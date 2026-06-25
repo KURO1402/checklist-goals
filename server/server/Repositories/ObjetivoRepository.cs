@@ -22,7 +22,7 @@ namespace server.Repositories
         public async Task<List<Objetivo>> ObtenerObjetivosPorUsuarioAsync(int idUsuario)
         {
             return await _context.Objetivos
-                .Where(o => o.IdUsuario == idUsuario)
+                .Where(o => o.Id == idUsuario)
                 .OrderByDescending(o => o.FechaCreacion)
                 .ToListAsync();
         }

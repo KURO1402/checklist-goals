@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace server.Models
 {
@@ -7,7 +6,7 @@ namespace server.Models
     public class Objetivo
     {
         [Column("id_objetivo")]
-        public int IdObjetivo { get; set; }
+        public int Id { get; set; }
         [Column("nombre_objetivo")]
         public string NombreObjetivo { get; set; } = string.Empty;
         [Column("descripcion_objetivo")]
